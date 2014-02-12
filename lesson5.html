@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 5</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>CSS basics</h1>
+  <h2>It's my Web! Lesson 5</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson4.html">More HTML</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson6.html">How CSS works</a></p>
+</nav>
+
+  <main>
+
+    <p>Hello again! I hope you've been having fun the last couple of weeks playing around with HTML. This week we are going to leave it behind and move on to looking at <acronym title="Cascading Stylesheets">CSS</acronym> instead. CSS is the language we use to style our HTML content, whether we want to change colours, make text bigger, change the size or positioning of HTML elements, or whatever else we want to do to make things look cool.</p>
+
+    <p class="note">You can find a useful reference to the most common CSS features you'll want to use: see the <a href="https://mozteach.makes.org/thimble/css-cheatsheet">CSS Cheatsheet</a>.</p>
+
+    <h2>CSS basic anatomy</h2>
+
+    <p>Let's revisit the basics of CSS again, in a bit more detail this time.</p>
+    
+    <ol>
+      <li>First of all, create a new <a href="https://thimble.webmaker.org/">Thimble page</a> just to play around in. The <code>body</code> of your HTML should already contain a single paragraph. Let's style it with a CSS rule.</li>
+      <li>Enter an opening <code>&lt;style&gt;</code> tag just before your closing <code>&lt;/head&gt;</code> tag, then press Enter a couple of times, then enter a closing <code>&lt;/style&gt;</code> tag. Inside the <code>style</code> element is where we will write our CSS.</li>
+      <li>Inside the <code>style</code> element, write the following bit of CSS:</li>
+    </ol>
+
+<pre><code class="language-css"><span class="highlight1" data-label="This is the selector">p</span> {
+<span class="highlight2" data-label="This is a declaration">color: blue</span>;
+<span class="highlight4" data-label="Curly braces contain the declarations">}</span></code></pre>
+
+     <p>Your paragraph's text should now be a funky blue colour! To explain what the different parts are in more detail:</p>
+
+     <ul>
+       <li>The whole thing is called a CSS <em>ruleset</em> (although most people just say <em>rule</em>.)</li>
+       <li>The <code>p</code> is the <em>selector</em>. This selects what HTML elements on the page should be styled by the CSS rule. In this case, we are telling it to select all <code>p</code> elements on the page.</li>
+       <li>The <code>color: blue</code> is called a declaration. You are declaring that you want to give a certain <em>property</em> of the HTML elements selected by the rule a certain <em>value</em>.
+         <ul>
+           <li><code>color</code> is the property you are setting a new value for.</li>
+           <li><code>blue</code> is the value you are giving that property.</li>
+         </ul>
+       </li>
+       <li>the declarations of your rule have to be wrapped in curly braces ( <code>{ ... }</code> ).</li>
+     </ul>
+
+     <p class="note">Note the American spelling of "color". When web programming languages were invented, the agreement was that we would all use American spellings to avoid confusion and make things easier.</p>
+
+     <p>You can add as many declarations as you want to in each CSS rule that you write. You just need to remember to put a colon (:) in between each property and its value, and separate each declaration with a semi-colon (;). Try adding a few more of these to your CSS rule:</p>
+
+<pre><code class="language-css">p {
+  color: blue;
+  font-size: 30px;
+  background-color: yellow;
+  border-radius: 10px;
+  border: 2px solid green;
+  padding: 10px;
+}</code></pre>
+
+<p>The finished result should look something like the below image</p>
+
+<img src="images/5a.png" alt="large blue text on a yellow background with a green border; the text says Make something amazing with the web">
+
+<p>CSS doesn't care about how much whitespace you put around the different bits. So</p>
+
+<pre><code class="language-css">p {color:blue;}</code></pre>
+
+<p>Actually has exactly the same effect as</p>
+
+<pre><code class="language-css">p {
+color: blue;
+}</code></pre>
+
+<p>It is all down to what style you prefer to write. I prefer the second one, as it is easier to read what is going on.</p>
+
+<h2>Where does the CSS go?</h2>
+
+<p>We have already seen CSS being put into a <code>style</code> element inside the HTML head. This is called an <em>Internal stylesheet</em>, as it is inside the HTML.</p>
+
+<p>It is also possible to put CSS inside individual HTML elements, inside a <code>style</code> attribute. For example, try putting this in your HTML body:</p>
+
+<pre><code class="language-markup">&lt;h1 style="text-shadow: 2px 2px 1px green;"&gt;My text rocks&lt;/h1&gt;</code></pre>
+
+<p>A heading wouldn't normally have a funky green drop shadow on it, but we have given it one via the <code>text-shadow</code> property inside our <code>style</code> attribute. Doing it this way is called <em>inline CSS</em>, as it is put straight inside the lines of HTML, rather than being separated out. This way of doing it is <strong>really bad</strong> though, and you shouldn't do it unless you really have to.</p>
+
+<p class="note">Can anyone think why?</p>
+
+<p>The final way of doing it is via an <em>external stylesheet</em>, which is CSS that sits outside your HTML document altogether, in a separate CSS file. So you might save all your HTML in a file called <code>example.html</code>, then pull your CSS out of the HTML and put it into a separate file called <code>style.css</code> (just the CSS, not the <code>&lt;style&gt;&lt;/style&gt;</code> tags.) You then link the CSS to the HTML by including a <code>link</code> element inside your HTML head, which looks like this:</p>
+
+<pre><code class="language-markup">&lt;link href="style.css" type="text/css" rel="stylesheet"&gt;</code></pre>
+
+<p>We won't get into this linking business much in the course; here we'll just keep using internal stylesheets in Thimble.</p>
+
+<h2>Different types of selector</h2>
+
+<p>We'll look at a few different types of selector in this course. So far you have only seen <em>element</em> selectors, for example <code>p</code> and <code>h1</code>, which select all of the elements of that type on an HTML page. The other two main selectors you'll come across are called <em>class</em> and <em>id</em> selectors, which select HTML elements that have certain <code>id</code> or <code>class</code> attribute values.</p>
+
+<p class="note">Note that the difference between classes and ids is that you can have as many HTML elements as you want with the same class value, but you can only have a single element with each id value. ids are <em>unique identifiers</em>, meaning there can be only one on each HTML page.</p>
+
+<p>Let's look at an example. Say you have a lot of paragraphs in your HTML, like so:</p>
+
+<pre><code class="language-markup">&lt;p&gt;Make something amazing with the web&lt;/p&gt;
+
+&lt;p&gt;My third paragraph&lt;/p&gt;
+
+&lt;p&gt;And another one!&lt;/p&gt;
+
+&lt;p&gt;Annnnd another...&lt;/p&gt;
+
+&lt;p&gt;My word there are loads of these!&lt;/p&gt;</code></pre>
+
+<p>If you use a paragraph selector (<code>p</code>) then you will be able to select and style all of these at once, but what if you only want to select one, or a few of them? This is where classes and ids can come in very useful. Let's add a few to our above example</p>
+
+<pre><code class="language-markup">&lt;p&gt;Make something amazing with the web&lt;/p&gt;
+
+&lt;p class="special"&gt;My third paragraph&lt;/p&gt;
+
+&lt;p&gt;And another one!&lt;/p&gt;
+
+&lt;p class="special"&gt;Annnnd another...&lt;/p&gt;
+
+&lt;p id="the-end"&gt;My word there are loads of these!&lt;/p&gt;</code></pre>
+
+<p>We can now select only the second and fourth paragraphs in my example using a class selector. You form a class selector using the class name with a dot (.) at the start, so for example:</p>
+
+<pre><code class="language-css">.special {
+  color: blue;
+}</code></pre>
+
+<p>And we can now select only the fifth paragraph in my example using an id selector. You form an id selector using the id name with a hash symbol (#) at the start, so for example:</p>
+
+<pre><code class="language-css">#the-end {
+  color: blue;
+}</code></pre>
+
+<p class="note">There are a lot of different types of selector to learn about: See the <a href="http://docs.webplatform.org/wiki/css/selectors">WebPlatform.org CSS selectors reference</a>.</p>
+
+<h2>Time to play</h2>
+
+<p>In the final part of our lesson we'll turn to our projects, and play with some interesting CSS properties. Try adding these to some content and see where you get! Below I've listed each property name with a description of what the value needs to be, and an example</p>
+
+  <ul>
+    <li><code>color</code>: Sets the colour of the text inside your element. This needs to be a single <a href="http://docs.webplatform.org/wiki/css/color">CSS colour value</a>, for example <code>color: blue;</code>.</li>
+    <li><code>background-color</code>: Sets the colour of the element's background. This needs to be a single <a href="http://docs.webplatform.org/wiki/css/color">CSS colour value</a>, for example <code>background-color: red;</code></li>
+    <li><code>font-size</code>: Makes the text bigger or smaller. This can be for example a specific size (24px), a relative size (400%) or other <a href="http://docs.webplatform.org/wiki/css/data_types/length">CSS length values</a>. For example, <code>font-size: 48px;</code></li>
+    <li><code>padding</code>: This sets the amount of space you have around the content of your HTML element. This can be for example a specific size (24px), a relative size (30%) or other <a href="http://docs.webplatform.org/wiki/css/data_types/length">CSS length values</a>. For example, <code>padding: 10px;</code> to set all four sides the same, or <code>padding: 5px 20px 10px 30px;</code> to set each side indivudally.</li>
+    <li><code>margin</code>: This sets the amount of space you have around the outside of your HTML element. This can be for example a specific size (24px), a relative size (30%) or other <a href="http://docs.webplatform.org/wiki/css/data_types/length">CSS length values</a>. For example, <code>margin: 10px;</code> to set all four sides the same, or <code>margin: 5px 20px 10px 30px;</code> to set each side individually.</li>
+    <li><code>border</code>: This sets a border round your element. The value has three items in it — a <a href="http://docs.webplatform.org/wiki/css/data_types/length">CSS length value</a> to say how thick the border is, a style to say what style the border is (<code>solid</code>, <code>dotted</code>, <code>dashed</code>?) and a <a href="http://docs.webplatform.org/wiki/css/color">CSS colour value</a> to say what colour it is. For example: <code>border: 5px dashed purple;</code>.</li>
+    <li><code>border-radius</code>: This allows you to give your CSS elements rounded corners. It takes a <a href="http://docs.webplatform.org/wiki/css/data_types/length">CSS length value</a> to say how big the rounding is. For example <code>border-radius: 10px;</code> to set all four corners the same, or <code>border-radius: 5px 20px 10px 30px;</code> to set each corner individually.</li>
+  </ul>
+
+  <p class="note">To find more out about colour theory and terminology, and more colour resources, read <a href="https://mozteach.makes.org/thimble/color-collapse">Color collapse</a> on Thimble.</p>
+
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson4.html">More HTML</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson6.html">How CSS works</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+ 
+</body>
+  <script src="prism/prism.js"></script>
+</html>

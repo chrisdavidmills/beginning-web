@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 3</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>HTML Basics</h1>
+  <h2>It's my Web! Lesson 3</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson2.html">Getting started</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson4.html">More HTML</a></p>
+</nav>
+
+  <main>
+
+  <p>This week we will start to learn about <acronym title="Hypertext Markup Language">HTML</acronym>, the language that is used on the Web to structure all content, and give it meaning (by this we mean "is it a paragraph?", "is it an image?", etc.) To start off with, we'll look at some real basics and build a few isolated examples. Then we'll move on to our project, and add some new content.</p>
+
+  <p>Before we start, open up a new <a href="https://thimble.webmaker.org">Mozilla Thimble</a> page; we'll use this for some of our work below.</p>
+
+  <p class="note">You can find a useful reference to the most common HTML features you'll want to use: see the <a href="https://mozteach.makes.org/thimble/html-cheatsheet">HTML Cheatsheet</a>.</p>
+
+  <h2>What does HTML look like?</h2>
+
+  <p>HTML is composed of tags, which wrap around bits of content that you want to do something to. This is the same principle used in programs you'll have already used, like Microsoft Word, or Apple Pages. When you select a bit of text and press the bold button to turn it bold, what you're actually doing is tagging that text with bold tags ... it is just that in those kinds of programs you don't see the code; it all happens in the background.</p>
+
+  <p class="note">The proper name for <em>tagging</em> in HTML is <em>marking up</em>. All of the content you're reading now is marked up in HTML.</p>
+
+  <p>Let's have a look at a typical, simple HTML example:</p>
+
+  <pre><code class="language-markup">&lt;p&gt;A simple paragraph of text.&lt;/p&gt;</code></pre>
+
+  <ul>
+    <li>The &lt; followed by the tag name followed by the &gt; is called the <em>opening tag</em>.</li>
+    <li>The &lt; followed by the forward slash (/) and tag name followed by the &gt; is called the <em>closing tag</em>.</li>
+    <li>The stuff in between the opening and closing tags is called the content.</li>
+    <li>The whole lot together is called an element.</li>
+  </ul>
+
+  <p>Try entering this <em>paragraph element</em> into your Thimble page: anywhere in between the opening and closing <code>&lt;body&gt; ... &lt;/body&gt;</code> will do.</p>
+
+  <p>Before we move on, let's talk about attributes. Attributes are extra bits of information that you can add to an HTML element to do extra things to it. For example:</p>
+
+  <pre><code class="language-markup">&lt;p style="color: blue;"&gt;A simple paragraph of text.&lt;/p&gt;</code></pre>
+
+  <p>Here we are adding a <code>style</code> attribute to our <code>p</code> element. Inside this, we can insert CSS to add styling just to this one element. In this case, we've just turned the text blue. There are lots of different attributes and CSS styles you could use, but we'll leave this there for now.</p>
+
+  <h2>What does an HTML document look like?</h2>
+
+  <p>An HTML document is generally split up into two parts: the <em>head</em> and the <em>body</em>. There are a couple of extra bits that don't quite fit into either, but these are fairly easy to understand too. Let's have a look at all the different parts:</p>
+
+  <pre><code class="language-markup"><span class="highlight1" data-label="This is the doctype" tabindex="0">&lt;!DOCTYPE HTML&gt;</span>
+<span class="highlight2" data-label="This is the HTML element opening tag" tabindex="0">&lt;html lang="en-US"&gt;</span>
+<span class="highlight3" data-label="This is the HEAD element opening tag" tabindex="0">&lt;head&gt;</span>
+<span class="highlight3" data-label="This is a character set meta tag" tabindex="0">  &lt;meta charset="UTF-8"&gt;</span>
+<span class="highlight3" data-label="This is the TITLE element" tabindex="0">  &lt;title&gt;It's my Web: Lesson 4&lt;/title&gt;</span>
+<span class="highlight3" data-label="This is a LINK element" tabindex="0">  &lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</span> 
+<span class="highlight3" data-label="This is the HEAD element closing tag" tabindex="0">&lt;/head&gt;</span>
+<span class="highlight4" data-label="This is the BODY element opening tag" tabindex="0">&lt;body&gt;</span>
+<span class="highlight4" data-label="This is a level 1 HEADING element" tabindex="0">  &lt;h1&gt;This is my web page.&lt;/h1&gt;</span>
+<span class="highlight4" data-label="This is the BODY element closing tag" tabindex="0">&lt;/body&gt;</span>
+<span class="highlight2" data-label="This is the HTML element closing tag" tabindex="0">&lt;/html&gt;</span></code></pre>
+  
+  <p class="note">In this example you can hover over the different lines with the mouse pointer to get a description of what they are, or even cycle through the different line descriptions by pressing the tab key (or whatever other keyboard controls your browser has for cycling through focusable elements).</p>
+
+  <ol>
+    <li><span class="highlight1">The doctype</span> is not an element (technically, it's called a <em>processing instruction</em>.) It basically points to a ruleset that defines rules how the HTML in the document should be written. You don't really need to know anything else about this, at least not for now. This always goes at the top of your HTML document.</li>
+    <li><span class="highlight2">The <code>html</code> element</span> wraps around the entire HTML document, except for the doctype. You should always include this second in an HTML page. This is sometimes called the root element of the page.</li>
+    <li><span class="highlight3">The head of the document</span> is wrapped by the <code>head</code> element. This contains all the information that describes your document, and does useful things to it, but which doesn't actually appear on the page. Here we've got:
+      <ul>
+        <li>A <code>meta</code> element, which defines what letters, numbers and other characters are allowed in the document. utf-8 basically means "every character available in the entire world." There is no reason to not use this.</li>
+        <li>A <code>title</code> element, which controls the text that appears in the web browser tab when this page is loaded up (and the text used when you bookmark the site.) You can change this to whatever you like.</li>
+        <li>A <code>link</code> element, which references a CSS file. This is just one way in which CSS styles can be applied to HTML (we already saw another one, earlier on, can you remember what it is?)</li>
+      </ul>
+    </li>
+    <li><span class="highlight4">The body of the document</span> is wrapped by the <code>body</code> element; this is where all your web page content goes — the stuff you want to show in the web browser. At the moment I've just put a single level 1 heading there, for example's sake.</li>
+  </ol>
+
+  <p class="note">You'll notice that there are a couple of elements here that only have a single tag, rather than a opening and a closing tag. They are called <em>empty elements</em>, because they have no content inside them. You'll meet a few of these throughout the course.</p>
+
+    <h2>Getting practical</h2>
+
+    <p>Now we've looked at how HTML works, let's start getting practical and start writing some of our own! You can experiment with the code in this section in a blank new <a href="https://thimble.webmaker.org">Thimble</a> page, or feel free to start putting some of it straight into your project.</p>
+
+    <h3>Adding a title to our page</h3>
+
+    <p>If you've not done so already, add a title to your page: Write any text you like between the <code>&lt;title&gt;</code> and <code>&lt;/title&gt;</code> tags.</p>
+
+    <h3>Headings and paragraphs</h3>
+
+    <p>Headings and paragraphs make up a lot of web content. Just as you would in Microsoft Word or another word processor, you create a document by having a single top level heading. then subsections are created using second level headings, then sub-subsections are created with third level headings, etc. In HTML this is done using heading levels <code>h1</code>, <code>h2</code> and <code>h3</code> (You can go right the way down to <code>h6</code>, but you really shouldn't be using this many levels of headings). Any content can be placed in between the headings, but for now, lets stick to paragraphs. Let's go back to a previous example.</p>
+
+    <pre><code class="language-markup">&lt;h1&gt;My website is all about food&lt;/h1&gt;
+
+&lt;p&gt;I &lt;strong&gt;love&lt;/strong&gt; food. It is what I look forward to
+&lt;em&gt;every&lt;/em&gt; morning, lunchtime and evening. My favourite foods are
+ as follows:&lt;/p&gt;
+
+&lt;h2&gt;Cheese&lt;/h2&gt;
+
+&lt;p&gt;Let's start with cheese. Cheeses are like an international culture 
+trip, with every country having its own famous varieties.&lt;/p&gt;
+
+&lt;h3&gt;Edam&lt;/h3&gt;
+
+&lt;p&gt;Edam is...&lt;/p&gt;
+
+&lt;h3&gt;Stilton&lt;/h3&gt;
+
+&lt;p&gt;Stilton is...&lt;/p&gt;
+
+&lt;h3&gt;Gorgonzola&lt;/h3&gt;
+
+&lt;p&gt;Gorgonzola is...&lt;/p&gt;</code></pre>
+
+<p>So here we have a top level heading that begins the entire content, then a second level subsection, then the subsection has three sub-subsections marked out by third level headings. Lets try adding some of our own headings and paragraphs to our projects.</p>
+
+    <h3>Lists</h3>
+
+    <p>HTML allows us to create lists, which is very significant. Life is full of lists, from obvious lists such as recipes and shopping lists, to less obvious lists. When you play with a toy like lego or a video game, you are making lists - "what are the next five pieces I should put on my model", or "in what order do I need to press the XBox 360 buttons to do the ultra combo?" In this section I'll introduce you to two different types of list.</p>
+    
+    <p><em>Unordered lists</em> are lists where the order of the list items doesn't matter. For example, a short shopping list:</p>
+
+    <ul>
+      <li>Eggs</li>
+      <li>Milk</li>
+      <li>Cheese</li>
+      <li>Co-Co Pops</li>
+      <li>Orange Juice</li>
+    </ul>
+
+<p>We'd mark this up like so:</p>
+
+    <pre><code class="language-markup">&lt;ul&gt;
+  &lt;li&gt;Eggs&lt;/li&gt;
+  &lt;li&gt;Milk&lt;/li&gt;
+  &lt;li&gt;Cheese&lt;/li&gt;
+  &lt;li&gt;Co-Co Pops&lt;/li&gt;
+  &lt;li&gt;Orange Juice&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    
+<p>The opening <code>&lt;ul&gt;</code> tag marks where the list starts, the closing <code>&lt;/ul&gt;</code> tag marks where the list ends, and the list items are all wrapped in a pair of <code>&lt;li&gt; ... &lt;/li&gt;</code> tags.</p>
+
+    <p><em>Ordered lists</em> are lists where the order of the items does matter. For example in a recipe, you would not successfully make the dish if you followed the instructions out of order. The ordered list is exactly the same as the unordered list, except that the container element is <code>ol</code>, not <code>ul</code>.</p>
+
+    <pre><code class="language-markup">&lt;ol&gt;
+  &lt;li&gt;Preheat the oven to 150 C / gas mark 2.&lt;/li&gt;
+  &lt;li&gt;Add butter and sugar in a bowl and mix well until 
+    light and fluffy.&lt;/li&gt;
+  &lt;li&gt;Add the vanilla, mix, then add the flour and mix well.&lt;/li&gt;
+  &lt;li&gt;Roll out to about 5mm. Cut into shapes.&lt;/li&gt;
+  &lt;li&gt;Bake for 25 minutes or until golden brown.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+    <p>Let's add a list or two to our project</p>
+
+    <h3>Emphasis</h3>
+
+    <p>HTML also has some elements that allow us to make some words stand out, or be more important than others. Here we'll look at two:</p>
+
+    <ul>
+      <li><code>strong</code> is for more important words</li>
+      <li><code>em</code> is for emphasis, on words that you might say differently</li>
+    </ul>
+
+    <p>Let's look at a couple of examples:</p>
+
+    <pre><code class="language-markup">&lt;p&gt;I have been away from home for &lt;em&gt;far too long&lt;/em&gt;...&lt;/p&gt;
+
+&lt;p&gt;When you phone up, be sure to &lt;strong&gt;quote your 
+reference number&lt;/strong&gt;.&lt;/p&gt;</code></pre>
+
+    <p>You can nest both if you like, so that you get emphasised and important:</p>
+
+<pre><code class="language-markup">&lt;p&gt;When you phone up, be sure to &lt;strong&gt;quote your 
+reference number: &lt;em&gt;3387&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;</code></pre>
+
+    <p>When you nest elements, you need to do them correctly, so you must close elements in the opposite order that you opened them in. The following is wrong:</p>
+
+<pre><code class="language-markup">&lt;p&gt;When you phone up, be sure to &lt;strong&gt;quote your 
+reference number: &lt;em&gt;3387&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>
+
+    <h3>Block versus inline elements</h3>
+
+    <p>As a brief note, when you start to do more web design you will hear the terms <em>inline element</em> and <em>block level element.</em> A block level element takes up space on the page, and appears on a new line below the previous content. Headings and paragraphs are good examples. An inline element is always put inside a block level element, and does not take up space on the page as such. It does not appear on a new line. emphasis and strong are perfect examples. You can put block level elements inside other block level elements, but you can't put block level elements inside inline elements.</p>
+
+
+  </main>	
+
+  <nav>
+  <p>Previous:<br><a href="lesson2.html">Getting started</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson4.html">More HTML</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+</body>
+  <script src="prism/prism.js"></script>
+</html>

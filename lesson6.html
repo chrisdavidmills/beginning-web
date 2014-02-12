@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 6</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>Fundamentals of how CSS works</h1>
+  <h2>It's my Web! Lesson 6</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson5.html">CSS basics</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson7.html">CSS decorations</a></p>
+</nav>
+
+  <main>
+
+    <p>Welcome to week 6! I regret to inform you that this week isn't going to be as fun and full of bling and playing as previous weeks. There are a few things about CSS that you really need to understand to get the best out of it, which aren't the most exciting things. It's like needing to learn to walk before you can run or play football.</p>
+
+    <p>Let's start, and do the best we can.</p>
+
+    <h2>CSS horizontal and vertical, width and height</h2>
+
+    <p>HTML elements are put onto your page along horizontal axis (called x) and vertical axis (called y), in the same way that you plot points on a graph.</p>
+
+    <img src="images/6a.gif" alt="a simple graph showing what x and y axes are">
+
+    <p>The main difference is that in HTML and CSS, the y axis starts at the top and runs downwards. You can immediately affect the amount of space an element takes up along the x and y axes using properties like <code>width</code>, <code>height</code>, <code>padding</code> and <code>margin</code>, as we'll see later on.</p>
+
+    <p>For now, lets set up a simple box to experiment on, as we go through.</p>
+
+    <ul>
+      <li>Start a new <a href="https://thimble.webmaker.org/">Thimble page</a>, delete the paragraph that appears as standard in your HTML body, and replace it with a <code>div</code> element:</li>
+
+<pre><code class="language-markup">&lt;div&gt;&lt;/div&gt;</code></pre>
+
+    <li>Now put a bit of CSS into your HTML head, as follows:</li>
+
+<pre><code class="language-markup">&lt;style&gt;
+  div {
+    background-color: red;
+    border: 10px solid black;
+    width: 200px;
+  }
+&lt;/style&gt;</code></pre>
+
+    <li>Now add a block of text into your <code>div</code>; this can be anything you like, but try not to make it go right to the bottom of the <code>div</code>. If you are really lost and uninspired, you can always grab some text from the <a href="http://www.lipsum.com/">Lorem Ipsum generator</a>.</li>
+  </ul>
+
+  <p>I have chosen to use a <code>div</code> because by default it has no width, padding, margin, etc. added to it by the browser, so it is cleaner to use for this demonstration. This leads me nicely on to our next topic.</p>
+    
+  <h2>Browser defaults</h2>
+
+  <p>All browsers set some CSS property values on certain HTML elements, before you've done anything yourself. If they didn't, unstyled HTML would look like a complete mess: this is a way to ensure that unstyled HTML is at least basically readable in browsers, even if it isn't that pretty. But this isn't helpful all the time. One really annoying thing when trying to lay out web pages is the default margin you get on the <code>body</code> and <code>html</code> elements. One of the first things I do to any web page is get rid of this default. This can be done with the following CSS:</p>
+
+<pre><code class="language-css">html, body {
+  margin: 0;
+}</code></pre>
+
+<p>Try adding this to your current example's CSS, and note how this causes the small gap between our div and the edge of the window to disappear.</p>
+
+    <h2>CSS length units</h2>
+
+    <p>Now let's move on to the types of <code>width</code> and <code>height</code> values we can use for our element's width, padding, etc. CSS has a set number of <a href="http://docs.webplatform.org/wiki/css/data_types/length">length units</a> that are used to specify how long we want a length to be. If you check the previous link, you'll see that there are a lot of different types of unit that you could use. Since I'm keeping it simple, I am only going to deal with two units throughout most of this course, <em>pixels</em> and <em>percentages</em>.</p>
+
+    <ul>
+      <li>Pixels are what we used just above, when we said <code>200px</code>. This specifies an exact number of pixels for the length you are specifying. This is sometimes called an <strong>absolute</strong> unit, as a pixel is generally the same amount wherever you are.</li>
+      <li>Percentages are specified by replacing the "px" unit after the numbers with a percentage sign (%), so instead of saying <code>50px</code>, you might say <code>50%</code>. When you specify a width in percentage, it is the percentage of the <em>parent element's</em> width*. Percentage is sometimes called a <strong>relative</strong> unit, as it varies depending on how wide the <em>parent element</em> is.</li>
+    </ul>
+
+    <p class="note">* ok, so it is not always that simple, like many things in web design. Percentage is sometimes a percentage of the element itself, not the parent element, for example if you are specifying <code>padding</code> as a percentage. But don't worry too much about this for now. It's complicated.</p>
+
+    <p>For now, try this:</p>
+
+    <ul>
+      <li>First try resizing the browser window, by holding the left mouse button down in the bottom left corner of the browser window and dragging. Note how the <code>div</code> stays the same width when you adjust the browser window width.</li>
+      <li>Change the <code>width: 200px;</code> value to <code>width: 50%;</code>.</li>
+      <li>Now when you resize the browser, you'll see that the <code>div</code>'s width changes as the window changes. This is the difference between absolute and relative length.</li>
+    </ul>
+
+    <h2>Parents, children, ancestors and siblings</h2>
+
+    <p>So what did I mean by saying <em>parent element</em> above? Let's look at a quick code example:</p>
+
+<pre><code class="language-markup">&lt;body&gt;
+
+  &lt;h1&gt;Heading&lt;/h1&gt;
+
+  &lt;p&gt;Paragraph&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Bullet 1&lt;/li&gt;
+    &lt;li&gt;Bullet 2&lt;/li&gt;
+    &lt;li&gt;Bullet 3&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/body&gt;</code></pre>
+
+<p>There are four different types of family relationship term to understand with HTML. These are completely borrowed from family trees.</p>
+
+<img src="images/6b.png" alt="A simple family tree diagram to illustrate what a family tree looks like">
+
+<ul>
+  <li><strong>Parent</strong>: In the above snippet, <code>body</code> is the parent of <code>h1</code>, <code>p</code> and <code>ul</code>. It is the element that wraps the others, and is immediately above it in the wrapping order (called the <em>hierarchy</em>). Similarly, <code>ul</code> is the parent of all the <code>li</code>s.</li>
+  <li><strong>Child</strong>: In the above snippet, <code>h1</code>, <code>p</code> and <code>ul</code> are children of the <code>body</code> element. They are immediately below it in the hierarchy.</li>
+  <li><strong>Ancestor</strong>: <code>ul</code> is an ancestor of the <code>li</code> elements. So is <code>body</code>, even though it is not directly above them in the hierarchy. So this is a more general term for any element above the current one in the hierarchy.</li>
+  <li><strong>Descendant</strong>: The <code>li</code>s are descendants of the <code>ul</code> element. They are also descendants of <code>body</code>, even thought they are not directly below it in the hierarchy. So this is a more general term for any element below the current one in the hierarchy.</li>
+  <li><strong>Sibling</strong>: The <code>li</code> elements are siblings. So are <code>h1</code> and <code>p</code>. This is a term that means elements at the same hierarchy level. Just like you and your brothers and sisters.</li>
+</ul>
+
+<h2>Inheritance</h2>
+
+<p>Just like you inherit traits off your parents, like eye colour, height or hair colour, child HTML elements inherit some property values off their parents. Really good examples are <code>font-family</code> and <code>font-size</code>. This is why when you set a different font and font size on the <code>html</code> element, all other elements in the document adopt those same property values. This makes things really easy in terms of styling your text.</p>
+
+<p>Some properties are <em>not</em> inherited, for example <code>width</code> and <code>padding</code>. Just imagine if you set <code>width: 50%</code> on a certain parent element, and all its descendants were 50% of the width of the previous descendant? This would make laying out your page a nightmare. We'll see some examples of this throughout the rest of the course. Let's move on for now.</p>
+
+<h2>Shorthand</h2>
+
+<p>A lot of properties you'll use are <em>shorthand</em> properties. This means that they allow you to set multiple property values at the same time, using a single property. An example we've seen before is <code>border</code>. Take the following example:</p>
+
+<pre><code class="language-css">border: 1px solid black;</code></pre>
+
+<p>This is actually shorthand: it does the same thing as the following three separate properties:</p>
+
+<pre><code class="language-css">border-width: 1px;
+border-style: solid;
+border-color: black;</code></pre>
+
+<p>Note that you can also subdivide these into further shorthand properties:</p>
+
+<pre><code class="language-css">border-top-width: 1px;
+border-right-width: 5px;
+border-bottom-width: 10px;
+border-left-width: 2%;</code></pre>
+
+<p class="note">You will probably very rarely — if ever — need to subdivide the border width values this much, but now you know.</p> 
+
+<h2>The box model</h2>
+
+<p>When an element is laid out on a web page, the web browser draws it on the screen according to a specific model called the <em>box model</em>.</p>
+
+<img src="images/6c.png" alt="An explicit illustration of the various parts of an element box, with content, padding, border and margin shown going from inside to out">
+
+<p>So when you put an element on a page, it has four things that affect the space it takes up.</p>
+
+<ul>
+  <li><strong>The content</strong>: This is the bit on the inside of the element, which is usually our text (or might be images). The width and height of this can be affected by the <code>width</code> and <code>height</code> properties. By default the element will be as long as it needs to be to contain the content. Let's try altering the width and adding a height. If you set a height that is shorter than the content, the content will overflow the element.</li>
+  <li><strong>The padding</strong>: This is the area immediately surrounding the content. You can control the padding using the <code>padding</code> property (and <code>padding-top</code>, etc.) Let's try adding some padding to our content, e.g <code>padding: 10px;</code>. A little bit of space around your text makes the content sit much nicer.</li>
+  <li><strong>The border</strong>: This goes around the padding; you've seen this before. Lets have a bit of a play with changing the border values.</li>
+  <li><strong>The margin</strong>: This is the space around the border; you can set this with the <code>margin</code> property (and <code>margin-top</code>, etc.) This creates some space around the element. Let's try setting some margin on our <code>div</code>, for example <code>margin: 10px;</code></li>
+</ul>
+
+<p>One more thing I'll mention before we start is <em>margin collapse</em>. When two margins meet each other, the smallest one collapses into the larger one, meaning that only the larger one remains. To see this in action, try adding another <code>div</code> just below your first one: just copy your first <code>div</code>.</p>
+
+<p class="note">when you set a width on an element, that is just the width of the content. The total space the element takes up is the content width, plus the left and right margin, border and padding. In the case of the sample div we've been looking at, if we set the div back to its original width, 200px, the total width taken up would be:</p>
+
+<pre><code class="language-css">200px + (10 x 2) + (10 x 2) + (10 x 2) = 260px</code></pre>
+
+<p>With that out the way, let's go and add some spacing to our projects!</p>
+
+  </main>
+
+<nav>
+  <p>Previous:<br><a href="lesson5.html">CSS basics</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson7.html">CSS decorations</a></p>
+</nav>	
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 8</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css"> 
+</head>
+<body>
+
+<hgroup>
+  <h1>CSS layout and free time</h1>
+  <h2>It's my Web! Lesson 8</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson7.html">CSS decorations</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson9.html">CSS positioning</a></p>
+</nav>
+
+  <main>
+    <p>Welcome to part 8 of our course! In this section you have a choice. You can either get on with what you've been doing already, or learn something new and slightly more advanced. Or you can do both, depending on how quickly you pick this up!</p>
+
+    <h2>Floats and CSS layouts</h2>
+
+    <p>As you'll see when you look at different websites, most of them don't have a single column of text going from top to bottom. Most of them have multiple columns of text sitting alongside one another. As examples, let's look at <a href="https://developer.mozilla.org/en-US/">The Mozilla Developer Network</a>, <a href="http://www.bbc.co.uk/">The BBC home page</a>, and as a simpler example, my <a href="https://chrisdavidmills.makes.org/thimble/i-love-primus">Fansite template</a>. So how do we do this?</p>
+
+    <img src="images/8a.png" alt="The BBC website showing multiple columns of content, and the leading story as an excited young girl at Christmas with the caption what are the odds of a white Christmas this year?">
+
+    <h3>Introducing floats</h3>
+
+    <p>There is a property available in CSS called <code>float</code>, which can take a value of <code>left</code> or <code>right</code>. When you set this on an element, it causes that element to float downwards around the left or right edge of the element below it in the source order. Originally this was designed to allow us to have images floating inside nearby blocks of text, in the same way that you might have in a newspaper or magazine article. Let's run through a quick example.</p>
+
+    <ol>
+      <li>Start a new <a href="https://thimble.webmaker.org/">Thimble page</a>.</li>
+      <li>In this page's <code>body</code>, insert the following HTML code:</li>
+<pre><code class="language-markup">&lt;img src="http://people.mozilla.org/~cmills/st-chads/images/duck.jpg"
+     alt="A yellow duck"&gt;
+&lt;p&gt;My rubber duckie is really gorgeous. Lorem ipsum dolor sit
+amet, consectetur adipiscing elit. Praesent eget gravida leo. Duis
+interdum ac libero sit amet molestie. Phasellus venenatis nisl non
+justo vestibulum porta. Donec nec dictum justo, at mollis nulla. Ut
+viverra pretiumn consectetur. Quisque eros magna, pretium eu
+tempus ac, posuere a quam. Nunc hendrerit luctus gravida. Donec at
+ligula quis tortor bibendum dignissim eu ac est. Phasellus
+scelerisque non elit eu aliquam. Vestibulum venenatis varius ante 
+vitae faucibus. Quisque blandit, arcu sed malesuada tempus, ante 
+lorem laoreet massa, sit amet pretium elit purus et lorem. 
+Vestibulum venenatis varius ante vitae faucibus. Quisque blandit,
+arcu sed malesuada tempus, ante lorem laoreet massa, sit amet 
+pretium elit purus et lorem.&lt;/p&gt;</code></pre> 
+      <li>Insert a <code>style</code> element into the document head like we've done a number of times before.</li>
+      <li>Inside the <code>style</code> element, put the following CSS:</li>
+<pre><code class="language-css">img {
+  float: left;
+}</code></pre>
+      <li>Try changing the <code>left</code> value to <code>right</code> to see what happens.</li>
+    </ol>
+
+    <p>You now have the basis of CSS layouts. Let's look at something a bit more complex.</p>
+
+    <h3>A simple CSS layout</h3>
+
+    <p>Even though floats were only really intended for simple floated images in the first place, you can apply a float to anything you want. Web developers very quickly realised that they could start using floats to create multiple column layouts, which was pretty cool.</p>
+
+    <p>Let's look at a typical multiple column layout example, to get us familiar with the concept.</p>
+
+    <ol>
+      <li>Start a new <a href="https://thimble.webmaker.org/">Thimble page</a>.</li>
+      <li>In this page's <code>body</code>, insert the following HTML:</li>
+<pre><code class="language-markup">&lt;div class="header"&gt;&lt;h1&gt;This is my page heading&lt;/h1&gt;&lt;/div&gt;
+&lt;div class="main-column"&gt;&lt;p&gt;This is my main column.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="side-column"&gt;&lt;p&gt;This is my sidebar.&lt;/p&gt;&lt;/div&gt;
+&lt;div class="footer"&gt;&lt;p&gt;My page © 2014.&lt;/p&gt;&lt;/div&gt;</code></pre>
+      <li>We've now got four container elements with a bit of content inside each one. Let's highlight the area they take up and make them a bit taller, so we can see what is going on more easily. Create a <code>style</code> element inside the document head, as before.</li>
+      <li>Add the following CSS into the <code>style</code> element:</li>
+<pre><code class="language-css">.header, .footer {
+  background-color: green;
+  height: 100px;
+}
+
+.main-column, .side-column {
+  height: 200px;
+}
+
+.main-column {
+  background-color: blue;
+}
+
+.side-column {
+  background-color: yellow;
+}</code></pre>
+
+      <li>Now let's go about creating a two column layout. We need to alter the width of the main column and side column so they will fit alongside one another. Then we need to make them both float so they sit alongside one another rather than being on top of one another. Update the bottom two rules so they look like this:</li>
+
+ <pre><code class="language-css">.main-column {
+  background-color: blue;
+  width: 58%;
+  float: left;
+}
+
+.side-column {
+  background-color: yellow;
+  width: 40%;
+  float: right;
+}</code></pre>
+
+<li>At this point, your layout should look like the screenshot below.</li>
+    </ol>
+
+<img src="images/8b.png" alt="A simple two column website layout, with a problem; the footer is all messed up because it is floating around the columns when it shouldnt be">
+
+<h3>Clearing floats to solve problems</h3>
+
+<p>So now we have a two column layout with a gutter in between, but all is not well. The green colour from the footer has been slurped up into the gutter, and the footer content is left looking a shabby colourless mess down below. This is because when you tell an element to float, it will float down the page forever, well, until the bottom of the element. Everything than can, <em>will</em> float around it, including our footer. They way to deal with this is to use <code>clear</code> a property which when set on an element basically says "stop floating here."</p>
+
+<p><code>clear</code> takes one of three values: <code>left</code>, <code>right</code> or <code>both</code>. Which one you use depends on whether you want to stop left floats happening, right floats, or left and right at the same time. I usually find that <code>both</code> is the best to use, to be an the safe side. To fix the problem in this case, add the following rule to the bottom of your CSS:</p>
+
+<pre><code class="language-css">.footer {
+  clear: both;
+}</code></pre>
+
+<p>This should fix your layout, giving you a look like the screenshot below.</p>
+
+<img src="images/8c.png" alt="A simple two column website layout">
+
+<h3>Challenges</h3>
+
+<p>Now you've mastered a basic two column layout, try the following:</p>
+
+<ul>
+  <li>Add a two column layout to your project</li>
+  <li>Turn the two column layout into a three column layout</li>	
+  <li>Add a three column layout to your project</li>
+</ul>
+
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson7.html">CSS decorations</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson9.html">CSS positioning</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

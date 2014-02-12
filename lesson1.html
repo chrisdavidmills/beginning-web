@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 1</title>
+	<link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>What is the Web, really? Why is it interesting?</h1>
+  <h2>It's my Web! Lesson 1</h2>
+</hgroup>
+
+<nav>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson2.html">Getting started</a></p>
+</nav>
+
+  <main>
+
+  <p>Welcome to <em>It's my web</em>. This is a ten week course, aimed at teaching complete beginners some basic web design skills. We won't have anywhere near enough time to make you masters at building websites, but we will be able to get you started, and give you some enthusiasm to go off on your own and learn more.</p>
+
+  <p>In this session we will get started by looking at why the Web is interesting and how it works, and then hacking around with your school website near the end!</p>
+
+  <h2>What the web is, and why it is so interesting</h2>
+
+  <iframe src="//slid.es/chrisdavidmills/what-is-the-web/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+  <p>You can also <a href="http://slid.es/chrisdavidmills/what-is-the-web">view "What is the Web?"</a> on its own web page. This presentation was created using the rather excellent <a href="http://slid.es/">slid.es</a>, which is powered by the <a href="https://github.com/hakimel/reveal.js/">RevealJS</a> JavaScript library.</p>
+
+  <h2>How does the Web work?</h2>
+
+  <p>The Web is built on a series of technologies for information transfer, plus some programming languages that you use to specify how you want that information to look. A simplified view follows:</p>
+
+  <ul>
+    <li>The client: This is your computer at home, which you use to access the Web</li>
+    <li>The server: This is a computer sat in a room somewhere, which stores websites. When you access a website on your computer, a copy of the website data is sent from the server to your client machine for you to look at.</li>
+    <li>Your Internet connection: Allows you to send and receive data on the Web. It's basically like a giant street that cars and people can travel down.</li>
+    <li><acronym title="Transmission Control Protocol">TCP</acronym>/<acronym title="Internet Protocol">IP</acronym>: Defines how your data should travel down that road. This is like the cars and buses people use to get places.</li>
+    <li><acronym title="HyperText Transfer Protocol">HTTP</acronym>: Defines how and when data should be sent between the client and the server. This is like some people deciding what journeys they need to go on down the road, how far they need to travel, what mode of transport they need to use, etc.</li>
+    <li><acronym title="Domain Name Server">DNS</acronym>: Domain Name Servers are like an address book for Websites. When you type in a web address in your browser, before the website is retrieved the browser goes to the DNS to find out where it lives, like when you look up someone's address so you can go and visit them. Try typing http://212.58.251.195 into your web browser.</li>
+    <li><acronym title="HyperText Markup Language">HTML</acronym>, <acronym title="Cascading Style Sheets">CSS</acronym> and JavaScript: The main three programming languages that websites are built from.</li>
+    <li>Assets: This is a collective noun for all the other stuff that makes up a website, such as image files, MP3s and videos, Word documents, PDFs, etc.</li>
+  </ul>
+
+  <h3>A game of client/server</h3>
+
+  <p>Let's play a game! To play this we need:</p>
+
+  <ul>
+    <li>Some lego bricks (or some coloured cards of some kind)</li>
+    <li>One person to play a web server</li>
+    <li>One person to play HTTP</li>
+    <li>2-3 people to play clients</li>
+    <li>One person to play DNS</li>
+    <li>and a decent number of people to play our website data.</li>
+  </ul>
+  
+  <p>First, a typical successful web request:</p>
+
+  <ol>
+    <li>First the clients request a web page</li>
+    <li>The client web browsers look up the IP address of the website using the DNS</li>
+    <li>HTTP informs the server that the clients are requesting a website, with a message sent to the server. This is called an HTTP request.</li>
+    <li>There is no reason why the clients can't have this website, so the server responds with "200, OK". HTTP gives this response back to the client.</li>
+    <li>The website data is sent down the pipe to the clients. A copy is sent to each.</li>  
+    <li>The clients assemble the data into a working website that it's users can interact with.</li>
+  </ol>
+
+<p>Now, an unsuccessful web request:</p>
+
+  <ol>
+    <li>First the clients request a web page, but they've got the address slightly wrong.</li>
+    <li>The client web browsers look up the IP address they've been given using the DNS</li>
+    <li>The website cannot be found, so the HTTP response "404, NOT FOUND" is given back to the client.</li>
+  </ol>
+
+<p>When data is sent down the pipe, it is broken up into little tiny bits called <em>packets</em>. Each one of our data people really represents a single packet! If the data were not broken into packets before being sent to the client computers, it would be much harder to send around. It's the same principle as getting a wardrobe in through your front door, up your stairs and into your bedroom. This is a lot easier to do if you carry the wardrobe upstairs in pieces and then assemble it in the bedroom, rather than carrying it upstairs already assembled!</p>
+
+<h2>The open source, hackable web</h2>
+
+<p>As I mentioned before, one of the main principles the Web was created on was being developed openly and made available to all for free. This is a very good thing for humanity: think about how much the Web shapes our lives. It would be very scary indeed if one company or government was in control of the Web, and started developing it in secret.</p>
+
+<p>The Web is built on a series of open standards, meaning that your code can run on any computer that has a web browser, and you don't have to pay anything to create websites, beyond the cost of the computer you are using, and an internet connection.</p>
+
+<p>Standards are important - they make our lives much easier. It is the same principle as standards in the real world. Think of how convenient it is that all appliances in our country use the same power sockets, and all screws are screwable using one of about 2-3 types of screwdriver.</p>
+
+<p>Another aspect of this openness is that you can view the code of any website, and see how they work. Every web browser has a "View source" option. Let's try it. This is very helpful for learning. The web development community is also very open, collaborative and supportive. Lots of people publish articles to teach you how to do web design and development. For example, I publish most of my work on the <a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a>. Literally hundreds of people contribute to this site.</p> 
+
+<p>You can even write code to affect the way you view and use other people's websites. These tend to take the form of browser addons or extensions. Let's look at something similar.</p>
+
+<h2>Let's look around the web, with Xray goggles!</h2>
+
+<p>We'll round off this week with a first look at some web code, via an application called <a href="https://goggles.webmaker.org/">Xray Goggles</a>.</p>
+
+<ol>
+  <li>Click on the above link.</li>
+  <li>On this page, click the X-Ray Goggles button. You'll see that now as you move your mouse pointer around the page, the different parts of the page highlight to tell you what code is underneath each bit.</li>
+  <li>Click the "X-Ray Goggles" title at the top of the page: A window will open up allowing you to edit the page!</li>
+  <li>Change the text of the title to something else</li>
+  <li>Click the "Commit changes" button: you'll now see that the page has been changed</li>
+  <li>You can also press delete/backspace to delete bits of the webpage, and P to publish your hacked version of the page!</li>
+  <li>Play with the page for a few minutes, then turn Xray Goggles off by pressing Esc.</li> 
+  <li>You can make Xray Goggles available on any page by putting it on your browser: You can drag the Xray Goggles button onto your bookmarks toolbar, or add it to your bookmarks menu.</li>
+</ol>
+
+<div class="note">
+  <p><strong>Note</strong>: You have only changed your own copy of the web page, not the original on the server. If you reload the page (Ctrl + R or Cmd + R on Mac) you'll see that the page returns to it's original state.</p>
+</div>
+
+<h3>Hacking the school website</h3>
+
+<p>Let's load up the school website and have a go at changing that. Once you've finished, you can publish your remixed version of the web page at it's own web address by pressing P.</p>
+
+<p>If you want to update an image on a web page, it is more complex, but you can still do it without too much trouble. First lets look for an image to insert on your page. The best way to find images to insert is to use <a href="http://www.google.co.uk/imghp">Google image search</a>, which is a Google site that allows you to search just for images.</p>
+
+   <ol>
+     <li>Open Google Images in a new tab.</li>
+     <li>Search for something you'd like to display, and click on an image result. The image should come up big and highlighted.</li>
+     <li>Click on the <em>View image</em> button; this will bring just that image up in the browser.</li>
+     <li>Select the whole web address of the image that you should now see in the address bar of your browser and copy it (you can also do this in Firefox by Right/Ctrl + clicking and selecting <em>Copy image location</em>; most other browsers have a similar option.)</li>
+     <li>Go back to the tab you are running Xray Goggles on.</li>
+     <li>Click on one of the images: it should come up with the Xray Goggles window, showing an <code>&lt;img&gt;</code> tag, with a bunch of other information inside it. If you don't see this, press <em>Cancel</em> and try something else. Not all images are as they seem.</li>
+     <li>The bit you need to change is the <code>src</code> attribute, which should look like <code>src="http://some.kind-of-web-address.com"</code>. You need to replace the bit inside the quote marks (<code>" ... "</code>) with the web address you copied from Google Images earlier.</li>
+     <li>Press Save, and you should see the image updated.</li> 
+   </ol>
+
+<p>That's all for this week. Until next time, have fun!</p>
+
+
+  </main> 
+
+<nav>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson2.html">Getting started</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

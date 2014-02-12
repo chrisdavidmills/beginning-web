@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 4</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>More HTML to get stuck into</h1>
+  <h2>It's my Web! Lesson 4</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson3.html">HTML basics</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson5.html">CSS basics</a></p>
+</nav>
+
+  <main>
+
+  <p>Before we move on and look at some styling with CSS, lets have a look at some more HTML features that you'll use all the time in web design. I'm not going to cover all of HTML because, well, we don't have time, HTML is fairly boring on its own, and it all works in a similar way. Once you know how one or two elements work, it is pretty easy to work out the others.</p>
+
+  <p>The new elements I'll cover in this session are:</p>
+
+  <ul>
+    <li><code>img</code>: image elements allow you to insert images into your page.</li>
+    <li><code>a</code>: anchor elements allow you to link to other pages, and other parts of the same page.</li>
+    <li><code>iframe</code>: Inline frames allow you to insert content into your site from other sites, for example Youtube videos.</li>
+    <li>Container elements: elements such as <code>div</code> that you generally use to contain or group several other elements, so you can style or script all of them like they are one item.</li>
+  </ul>
+
+   <h2>HTML Images</h2>
+
+   <p>Before web pages were able to have images inserted in them, the Web was just text, and you can imagine what a boring place it was back then! In around 1993, the <code>img</code> element was invented, and things got a lot prettier.</p>
+     
+   <h3>Including an image in your page</h3>
+
+   <p>To start off with, let's just add the most basic example of an <code>img</code> element to our example project. You can add this anywhere you like.</p>
+
+   <pre><code class="language-markup">&lt;img src="http://people.mozilla.org/~cmills/st-chads/images/kitten.jpg"&gt;</code></pre>
+
+   <p>You should now see a picture of a cute kitten, sat on your page. You'll notice that the image element is another example of an empty element, and at the moment it only has one attribute, <code>src</code> (short for <em>source</em>). This is the only attribute you have to give your image element, and it points to the location of the image you want to insert in your page. In this particular case, it is a location on one of my sites, but this could also be an image in the same folder as the webpage, either on the same site, or local computer.</p>
+
+   <h3>Finding images to use</h3>
+
+   <p>Lets look for a couple of images to insert on your page. The best way to find images to insert, for experimentation, is to use <a href="http://www.google.co.uk/imghp">Google image search</a>, which is a Google site that allows you to search just for images.</p>
+
+   <ol>
+     <li>Search for something you'd like to display, and click on an image result. The image should come up big and highlighted.</li>
+     <li>Click on the <em>View image</em> button; this will bring just that image up in the browser.</li>
+     <li>Select the whole web address of the image that you should now see in the address bar of your browser and copy it (you can also do this in Firefox by Right/Ctrl + clicking and selecting <em>Copy image location</em>; most other browsers have a similar option.)</li>
+     <li>Put your own image location into the code we used above, in place of my cute kitten pic.</li>
+   </ol>
+
+   <p class="note">You'll notice that images are of different types. Some are PNGs, some are JPGs, etc. You can find a guide to the most common different types of image at <a href="https://mozteach.makes.org/thimble/designing-for-the-web-images">Designing for the Web: Images</a>.</p>
+
+   <h3>Sizing</h3>
+
+   <p>Some of you will notice that your image is massive, far too big! We can remedy this by inserting a <code>width</code> attribute into our code. For example:</p>
+
+   <pre><code class="language-markup">&lt;img src="http://people.mozilla.org/~cmills/st-chads/images/kitten.jpg"
+   width="200"&gt;</code></pre>
+
+   <p>My original kitten picture was 400 pixels wide, whereas I've now made it 200 pixels wide, and the height has also adjusted so that the image looks the same only smaller (in technical terms, the <em>aspect ratio</em> has been maintained.) This also works the other way around, if you just specify a <code>height</code> attribute.</p>
+
+   <p>If you specify both <code>width</code> and <code>height</code> attributes, you can end up in a bit of a mess. For example:
+
+   <pre><code class="language-markup">&lt;img src="http://people.mozilla.org/~cmills/st-chads/images/kitten.jpg"
+   width="600" height="700"&gt;</code></pre>
+
+   <p>This code causes my kitten to stretch out of proportion, looking a bit horrible. So the lesson here is: don't specify both, unless you are really sure what you are doing! This can sometimes be an advantage. For example, if your image is already the right size that you want to display it at, specifying the exact width and height will make it so that the right amount of space is already set in the page for the image to appear in, which can make the page display a bit nicer.</p>
+
+   <p class="note">In real web design, we would be creating our own images, sizing them how we want in a graphics editor, and not really needing to use <code>width</code> or <code>height</code> attributes. But these are still useful to know about, and this is all we've really got time for in our course.</p>
+   
+   <p class="note">Also in real web design, you need to be careful about making sure you have permission to use the images you are inserting on your pages (who has the <em>copyright</em>?) But when you are just playing around and learning, it doesn't matter so much.</p>
+
+   <h3>Alternative text</h3>
+
+   <p>There is another attribute I'll share with you before we move on: <code>alt</code>. This allows you to provide a description of the image that will be used when the image can't be displayed, or when a visitor to your site is using a browser that doesn't display images</p>
+
+   <p>Let's look at an example:</p>
+
+   <pre><code class="language-markup">&lt;img src="http://people.mozilla.org/~cmills/st-chads/images/kitten.jpg"
+          alt="A cute ginger tabby cat with green eyes"&gt;</code></pre>
+
+   <p>To see <code>alt</code> in action, try misspelling your image's web address (the <code>src</code> attribute value.)
+
+  <img src="images/4b.png" alt="Some text that says A cute ginger tabby cat with green eyes" style="border: 2px solid black">
+
+   <h3>Note on web accessibility</h3>
+
+   <p>To go a bit further on the subject of <code>alt</code> text, let's say a bit about <em>web accessibility</em>. This is the practice of making websites that can be successfully used by as many users as possible. For example, computers can't be seen by blind people, who often use a program called a <strong>screen reader</strong> to read the contents of web browsers and other applications out to them. Images are not text, so can't be read out, which is one of the main reasons we add <code>alt</code> attributes to our images: this provides some descriptive text for the screen reader to read out. Let's watch a quick video to show how a blind person typically uses a computer.</p>
+
+   <iframe width="560" height="315" src="//www.youtube.com/embed/UzffnbBex6c" frameborder="0" allowfullscreen></iframe>
+   
+   <h2>HTML Links</h2>
+
+   <p>Links are probably the most important HTML elements, possibly even more important than images. They are what makes the Web <em>A WEB</em>. You can link to another web page, a different part of the same web page, or a different file entirely (for example a PDF, or a Word document.) Here is a simple example:</p>
+   
+  <pre><code class="language-markup">&lt;p&gt;Here is a link to the
+&lt;a href="http://www.mozilla.org/"&gt;Mozilla homepage&lt;/a&gt;.&lt;/p&gt;</code></pre>
+  
+  <p>So here, we are wrapping the text "Mozilla homepage" in an <code>&lt;a&gt;&lt;/a&gt;</code> element, which makes that text a link.</p>
+
+  <img src="images/4c.png" alt="An example of linked text on the Web - the whole sentence says Here is a link to the Mozilla homepage with Mozilla home linked" style="border: 2px solid black">
+
+   <p>Let's add a very simple link to our project page. You can wrap a link around basically any amount of content, but you should think carefully about how much content you link. You'll notice the blue colour and underline that marks the link as a link. This has been the convention since the Web first existed. After links have been visited at least once, they show up as purple instead. Using CSS (which we'll look at later on) you can change the link colours and other behaviour, but we'll leave it for now.</p>
+
+   <p class="note">The text inside your links should act like signposts to the pages (or resources) they link to. If you are linking to a page about cats, use "more information about cats" as the link text, not "click here" or "more information". The text should make sense on its own as well as as part of the larger sentence it is in. People using screen readers will often look at all the links on a page on their own in a list, to try to find what they want.</p>
+   
+   <h2>IFrames</h2>
+
+   <p>IFrames can be used to embed other web content into the current page. As you can imagine, this can get very complex very quickly, but for this course we will look at one very simple specific use: embedding <a href="http://www.youtube.com">Youtube</a> videos in other pages. Here's how.</p>
+
+   <ol>
+     <li>Go to a <a href="http://www.youtube.com">Youtube</a> video that you want to embed.</li>
+     <li>Below the video, click the <em>Share</em> button, which provides different ways of sharing the video with others.</li>
+     <li>There should now be an <em>Embed</em> button below the <em>Share</em> button. click that as well.</li>
+     <li>This will give you a text box containing a bit of HTML code. You need to copy it and then paste it into your page at the point where you want the video embedded.</li>
+   </ol>
+
+   <p>The code looks something like this:</p>
+
+   <pre><code class="language-markup">&lt;iframe width="560" height="315"
+src="//www.youtube.com/embed/a9O0MgjoeBM"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+
+    <p>All you really need to be worried about are the <code>src</code> attribute, which controls which video is embedded, and you can also alter the <code>width</code> and <code>height</code> attributes so that the video takes up a different amount of space. But note that video does not behave like images on the Web; when you alter the aspect ratio, you just get less of the video shown (called <em>letterboxing</em>), rather than the video being squashed as you might expect. There are a number of reasons for this, mainly related to browser processing power. Distorting a single image is not too hard, but distorting 30 frames per second is a lot harder.</p>
+
+    <p class="note">You should consider adding a <code>title</code> attribute to the <code>iframe</code> element, to say what the video or other content is. So for example:</p>
+
+    <pre><code class="language-markup">&lt;iframe width="560" height="315"
+title="Alcatel One Touch Fire z FireFox OS"
+src="//www.youtube.com/embed/a9O0MgjoeBM"
+frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+
+
+   <h2>Container elements</h2>
+
+   <p>Before we move on, I thought I'd say a few words about some of the other elements included in my templates. You may have noticed (and wondered about) structures like these:
+
+<pre><code class="language-markup">&lt;div class="subsection"&gt;
+  &lt;h2&gt;Statistics&lt;/h2&gt;
+
+  &lt;h3&gt;Band members&lt;/h3&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Les Claypool&lt;/strong&gt;: Bass and vocals&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Larry "Ler" LaLonde&lt;/strong&gt;: Guitar&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Tim "Herb" Alexander&lt;/strong&gt;: Drums&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;h3&gt;Active years&lt;/h3&gt;
+
+  &lt;p&gt;1984–2000, 2003–present&lt;/p&gt;
+
+  &lt;h3&gt;Genre&lt;/h3&gt;
+
+  &lt;p&gt;Alternative/Funk/Progressive rock&lt;/p&gt;
+
+&lt;/div&gt;</code></pre>
+
+   <p>And these:</p>
+
+<pre><code class="language-markup">&lt;header&gt;
+  &lt;h1&gt;My diary&lt;/h1&gt;
+  &lt;p&gt;This is my diary! Here I like to record my thoughts.&lt;/p&gt;
+&lt;/header&gt;</code></pre>
+
+  <p>Elements like <code>div</code> (short for <em>division</em>), <code>header</code> and <code>footer</code> are basically containers to wrap around other groups of elements. The main reason you'd want to do this is to have a single element to then target using CSS or JavaScript if you want to affect the whole lot at once. For example, what if you wanted to put a background colour around a heading and a load of paragraphs, all in one go?</p>
+
+
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson3.html">HTML basics</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson5.html">CSS basics</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+</body>
+  <script src="prism/prism.js"></script>
+</html>

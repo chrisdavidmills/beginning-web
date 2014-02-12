@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 2</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>Getting started with code and projects</h1>
+  <h2>It's my Web! Lesson 2</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson1.html">What is the Web really?</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson3.html">HTML basics</a></p>
+</nav>
+
+<main>
+
+<p>Let's move straight ahead and get on with some practical learning. We'll start by having a look at Mozilla Thimble, the main tool that we will be using to learn about web code, and then write some code of our own. We'll then choose a project to work on, and think about what we're going to do over the coming weeks!</p>
+
+<h2>Introducing Mozilla Thimble</h2>
+
+<p><a href="https://thimble.webmaker.org/">Mozilla Thimble</a> is a good tool for learning the basics of web code, because it allows you to play with code in an easy environment. When building a real website, you've got to deal with a lot of files, getting them to work together and talk to one another. For example, a website structure might look like this:</p>
+
+<img src="images/2a.jpg" alt="An image of a simple website folder structure showing index file and style, script and other folders">
+
+<p>This is tricky to handle for a beginner; in addition to all the files working together, you've got to keep testing the site in a web browser. Thimble takes away this complexity by handling it all inside a single website. In the following image you can see that you've got your code in the left hand window, and the rendered result automatically displayed in the window on right:</p>
+
+<img src="images/2b.jpg" alt="A screenshot of Mozilla Thimble showing code on the left and a rendered example on the right">
+
+<p>The result window updates automatically when you change the code. In addition, you can:</p>
+
+<ul>
+  <li>See where the mistakes are in your code: Thimble highlights them for you</li>
+  <li>Increase the text size if you want to make it bigger</li>
+  <li>Undo changes if you made a mistake</li>
+  <li>Publish your websites so others can see what you've created</li>
+  <li>Remix other people's websites and make your own versions of them</li>
+</ul>
+
+<h3>First steps with Thimble</h3>
+
+<p>Let's have some fun creating some code:</p>
+
+<ol>
+  <li><a href="https://thimble.webmaker.org/">Open up Thimble</a> in your web browser</li>
+  <li>Now you need to sign in to Thimble. This is done by pressing the "Sign in" button on the top right, entering your e-mail address and password (either that the school has provided or you have yourself), and then pressing "Sign in" again.</li>
+  <li>If it is your first time running Thimble (it should be for most of you) then you'll be asked to choose a name for your area of the thimble site. For example, mine is <em>https://chrisdavidmills.makes.org/</em>. IMPORTANT: <strong>you should</strong> choose a name that isn't your real name. Mine is my real name because I need it for my job. But in the interests of eSafety, you shouldn't make your personal details visible on the Web. More on eSafety later.</li>
+  <li>Have a look at the interface. Try changing the text in between the <code>&lt;p&gt;</code> and the <code>&lt;/p&gt;</code> tags and you should see it update on the right</li>
+</ol>
+
+<p class="note">Stuck on what to call yourself on Thimble? Have you got a favourite thing, or nickname, or avatar that you have used somewhere else in your life, to identify yourself? Something like <em>darkman2000</em>, <em>ponystable</em>, or <em>skateordie</em> would be fine.</p>
+
+<p>We've just done some web coding! Let's do a few more bits of coding, to get you used to how it all works.</p>
+
+<h3>The HTML skeleton</h3>
+
+<p><acronym title="Hypertext Markup Language">HTML</acronym> is a markup language that defines the structure of your website content, and the job each bit of content does (for example, is it a heading, is it a paragraph, etc.) If a website were a house, HTML would be the bricks and wood that the structure is built out of. HTML is what you can see in your new Thimble page. Essentially, HTML works in a similar way to a Microsoft Word document. When you make your text into a paragraph or change the colour of a word, or insert an image in your document, you are using markup.</p>
+
+<p>HTML generally works by wrapping content in <em>tags</em>. In each case, the opening tag (for example <code>&lt;p&gt;</code>) states where the effect is starting, and the closing tag (for example <code>&lt;/p&gt;</code>) states where the effect stops. The opening tag plus the content inside it plus the closing tag is called an <em>element</em>. There's a few HTML elements that work slightly differently to this, but we'll get to those later.</p>
+
+<p>The main parts of the document are as follows:</p>
+
+<ul>
+  <li>The DOCTYPE: this is the bit at the very top that reads <code>&lt;!doctype html&gt;</code>, and always has to go at the top of your HTML documents, for various complex reasons. It is kind of like a ruleset that defines the rules the HTML document should follow.</li>
+  <li>The head: The head of the document is everything in between the <code>&lt;head&gt;</code> and <code>&lt;/head&gt;</code> tags. This is basically where all of the setup or configuration information about your web page goes, such as its author, styling information, descriptive keywords, etc.</li>
+  <li>The body: The body of the document is everything in between the <code>&lt;body&gt;</code> and <code>&lt;/body&gt;</code> tags. This is where you put everything that you want to appear on your web page.</li>
+</ul>
+
+<p>Let's try writing a little bit of HTML to get the hang of things. Try including one or more of the following code items inside your body. You can vary the text inside the tags as much as you like, but the tags have to stay the same.</p>
+
+<pre><code class="language-markup">&lt;h1&gt;My website is all about food&lt;/h1&gt;
+
+&lt;p&gt;I &lt;strong&gt;love&lt;/strong&gt; food. It is what I look forward to
+&lt;em&gt;every&lt;/em&gt; morning, lunchtime and evening. My favourite foods are
+ as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cheese&lt;/li&gt;
+  &lt;li&gt;Curry&lt;/li&gt;
+  &lt;li&gt;Chocolate&lt;/li&gt;
+  &lt;li&gt;Seafood&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Cheese&lt;/h2&gt;
+
+&lt;img src="http://venturebeat.files.wordpress.com/2010/05/
+cheese_oh_cheese.jpg" alt="a piece of cheese"&gt;
+
+&lt;p&gt;Let's start with cheese. Cheeses are like an international culture 
+trip, with every country having its own famous varieties.&lt;/p&gt;
+
+&lt;p&gt;For more information on cheese, go to 
+&lt;a href="http://www.cheese.com/"&gt;Cheese.com&lt;/a&gt;&lt;/p&gt;</code></pre>
+
+<h3>CSS for style</h3>
+
+<p><acronym title="Cascading Stylesheets">CSS</acronym> is the main technology you can use to affect how your web pages look, so fonts, colours, spacing, animation, etc. Returning to our house analogy, CSS is like the paint, carpets, wallpaper, and other things you use to get your house looking nice.</p>
+
+<p>CSS works on the basis of rules. A rule has a selector, which specifies which element, or elements you are selecting to be styled. You then give your rule one or more declarations, each one of which states a property of the selected elements you want to change, and a value to change that property to. Let's add an example to our page.</p>
+
+<p>First of all, add a style element inside your head element. The best place is just before the closing <code>&lt;/head&gt;</code> tag. Add a couple of new lines then enter the following:</p>
+
+<pre><code class="language-markup">&lt;style&gt;
+&lt;/style&gt;</code></pre>
+
+<p>In between your opening and closing style tags, add the following CSS rule:
+
+<pre><code class="language-css">h1 {
+  color: blue;
+}</code></pre>
+
+<p>Now let's try adding a few more declarations to make it more fun:</p>
+
+<pre><code class="language-css">h1 {
+  color: blue;
+  font-size: 30px;
+  background-color: yellow;
+  border-radius: 10px;
+  border: 2px solid green;
+  padding: 10px;
+}</code></pre>
+
+<p class="note">Note the american spellings. They are necessary, otherwise your code won't work.</p>
+
+<p>You can change the colours and other properties, or even apply this styling to a different element or elements by changing the <code>h1</code> to something else.</p>
+
+<h3>JavaScript for interactivity</h3>
+
+<p>JavaScript is the thing you use to add interactivity and advanced features to your website. In the house analogy, JavaScript would be like the cool functional stuff in your house, like the TV, the XBox 360, the Microwave oven! We're not going to cover any JavaScript in this course, but I thought it would make sense just to show you what it looks like. JavaScript works in a similar way to CSS in some respects, although it is a lot more complex and flexible. You can select elements on the page and change things about them, but you can do some much more.</p>
+
+<p>Try putting the following in your page and seeing if you can get it to work. Don't be afraid to get it wrong! First, a couple of new elements; put these anywhere inside your body.</p>
+
+<pre><code class="language-markup">&lt;p&gt;Enter your name:&lt;/p&gt;
+&lt;form&gt;&lt;input type="text" id="input-box"&gt;&lt;/form&gt;
+&lt;p id="message-box"&gt;Hello!&lt;/p&gt;</code></pre>
+
+<p>Now let's add some JavaScript to the page. This can be added anywhere, but it is usually better to add it after the closing <code>&lt;/body&gt;</code> tag, to make sure the body is all loaded before we start trying to do things to it.</p>
+
+<pre><code class="language-javascript">&lt;script&gt;
+  var inputBox = document.getElementById('input-box');
+  var messageBox = document.getElementById('message-box');
+
+  inputBox.oninput = function() {
+    messageBox.innerHTML = "Hello, " +
+      inputBox.value + "! Nice to see you!";  
+  }
+&lt;/script&gt;</code></pre>
+
+<h2>eSafety</h2>
+
+<p>The Web is a wonderful thing, which has had many positive effects on our society. However, as with most good things in life, there are people out there who choose to misuse them for bad purposes, such as bullying, or information theft. Because of this, you should not include any personal details on your web page — your full name, pictures of you, where you live, what clubs you go to and where they are, or any such details about your friends or family.</p>
+
+<p>There have been cases such as:</p>
+
+<ul>
+  <li>Adults pretending to be children on social networking sites, making friends with real children online, arranging to meet the children, and then bullying or even kidnapping them.</li>
+  <li>People taking other people's embarrassing photos and sharing them with loads of other people so that the person in the photo is bullied and made to feel really upset.</li>
+  <li>People stealing other people's information, pretending to be them, and stealing money out of their bank accounts.</li>
+  <li>People finding out other people's passwords on social networking sites, pretending to be them, and making it look like they are saying and doing bad things online to get them in trouble.</li>
+</ul>
+
+<p class="note">Remember that the Web is <strong>worldwide</strong>, and can be accessed by pretty much anyone, anywhere. You can't just assume that anyone you "meet" online is who they say they are.</p>
+
+<p>There are ways to use the Web and stay safe while doing it:</p>
+
+<ul>
+  <li>Use an avatar name/photo (a different name and image to represent you)</li>
+  <li>Don't share any details of your location or other personal details online. The same goes for friend's or family member's details.</li>
+  <li>Don't give anyone else access to your login or password details for any sites</li>
+</ul>
+
+<p>Follow these simple rules and you will go a long way towards being safe on the Web.</p>
+
+<h2>Choosing a project to remix</h2>
+
+<p>I've created a number of project templates for you to start with, as it can be quite tedious building up a website from nothing. Choose one of these, and we'll build them up over the coming weeks. You can choose from:</p>
+
+<ul>
+  <li><a href="https://thimble.webmaker.org/">Start from a blank page, do it all yourself</a></li>
+  <li><a href="https://chrisdavidmills.makes.org/thimble/my-basic-page">Basic page template (simple one column page)</li>
+  <li><a href="https://chrisdavidmills.makes.org/thimble/my-hobbies">My hobbies (horizontally scrolling site)</a></li>
+  <li><a href="https://chrisdavidmills.makes.org/thimble/my-diary">A diary (more complex one column page)</a></li>
+  <li><a href="https://webmaker.makes.org/thimble/create-your-own-comic-a-starter-make">Create your own comic (complex layout but simple things to change)</a></li>
+  <li><a href="https://chrisdavidmills.makes.org/thimble/i-love-primus">A fan page (two column site complex)</a></li>
+  <li><a href="https://keyboardkat.makes.org/thimble/the-daily-prophet-special-edition">Harry Potter newspaper (complex, multiple columns)</a></li>
+</ul>
+
+<p class="note">You can find a useful <a href="https://mozteach.makes.org/thimble/designing-for-the-web-planning">guide to planning a website</a> on Thimble. This may well be a good help when you are thinking about what you want to do a web site about. You can also read a good little quick guide to <a href="https://mozteach.makes.org/thimble/designing-for-the-web-design">Designing for the Web</a>.</p>
+
+</main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson1.html">What is the Web really?</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson3.html">HTML basics</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

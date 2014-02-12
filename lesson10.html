@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 10</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>How do you become a web developer?</h1>
+  <h2>It's my Web! Week 10</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson9.html">CSS positioning</a></p>
+  <p><a href="index.html">Main index</a></p>
+</nav>
+
+<main>
+
+<p>Hello again!</p>
+
+<p>In the final section of this course we will start by having a look at what everyone has built, have a discussion about what tools you need to do web design/development, then talk about what it takes to become a web developer in terms of knowledge and attitude. After that I'll take questions, and leave you with some further resources.</p>
+
+<h2>Presenting the projects</h2>
+
+<p>Let's take some time out to look at what everyone has built during the course!</p>
+
+<h2>What tools do you need?</h2>
+
+<p>To be a web designer/developer, there are a few things you should get/understand. We won't cover all of these in this course; this is mainly just for your reference.</p>
+
+<ul>
+  <li>Web browsers</li>
+  <li>A code editor</li>
+  <li>A file structure</li>
+  <li>The web community</li>
+  <li>A graphics editor</li>
+  <li>Server space and a domain</li>
+  <li>An FTP program</li>
+</ul>
+
+<h3>Web browsers</h3>
+
+<p>As a web developer, you will need to do a lot of testing, to make sure that the websites you create will work properly in all the browsers your users will be using. This will require you to install multiple browsers on your own machine, and possibly even have access to multiple devices (lots of different types of device can access the Web these days.)</p>
+
+<h3>A code editor</h3>
+
+<p>Creating websites requires you to write code. To do this, you'll need a code editor of some kind. This is usually* an application that sits on your computer and allows you to edit code just as you'd edit a story using Word.</p>
+
+<p>Some recommended free code editors:</p>
+
+<ul>
+  <li><a href="http://notepad-plus-plus.org/">Notepad++</a> on Windows</li>
+  <li><a href="http://www.barebones.com/products/textwrangler/">Textwrangler</a> on Mac</li>
+  <li><a href="http://bluefish.openoffice.nl/index.html">Bluefish</a> on Linux</li>
+  <li><a href="http://www.sublimetext.com/">Sublime text is available across all three platforms</a>; a free trial is available</li>
+</ul>
+
+<p class="note">* I said <em>usually</em> above, because throughout this course we have been writing code inside Thimble, which is a web page.</p>
+
+<h3>A file structure</h3>
+
+<p>Once you've got your code editor up and running, you can start to create code files with it. As a web designer/developer, you'll be dealing mostly with plain text files (Microsoft Word, for example, is no good for writing code in, as Word files are not plain text: they are binary files, with lots of code information inside them as well as the Words you write into your document.)</p>
+
+<p>You can create a new file in most text editors using File > New, or pressing Ctrl + N (Cmd + N on a Mac.) The best thing to do when creating a website is to start off with an index.html file to act as your main page, in a dedicated directory, then add sub folders to contain your different file types, such as images, JavaScript files, and CSS files. For example:</p>
+
+<img src="images/10a.jpg" alt="An image of a simple website directory structure showing index file and style, script and other directories">
+
+<p>It is a matter of structuring your files intelligently so you will know where to find everything, and the files can easily talk to one another.
+
+<p class="note">Windows has a really annoying option turned on by default called "Hide extensions for known file types", which makes it impossible to create the <code>.html</code>, <code>.css</code>, etc. files that you need to do web development. You can turn this off in Windows Explorer using View > Folder Options > View > untick "Hide extensions for known file types".</p>
+
+<h3>A graphics editor</h3>
+
+<p>This is not essential straight away, but important in the long run; eventually you'll have to start making some graphics. Getting hold of a good and free graphics editor is not as easy as it is with code editors. The one most people tend to use is <a href="http://www.photoshop.com/">Photoshop</a>, but this is quite expensive, and complex to use. Some options are:</p>
+
+<ol>
+  <li><a href="http://windows.microsoft.com/en-us/windows7/products/features/paint">Paint</a>: Microsoft Paint has been available for free as part of Windows for ever. It is really basic and regarded by some as a bad joke, but it is still fine for performing basic functions such as resizing, cropping, and saving images in different file formats.</li>
+  <li><a href="http://www.gimp.org/">The GIMP</a>: The <em>GNU Image Manipulation Program</em> is available for Mac, Windows and Linux, and is free. It is fairly complex to use, but a fairly powerful option.</li>
+  <li><a href="http://imageoptim.com/">ImageOptim</a>: This Mac product takes images and makes them as small as possible. This is a very useful function for a web designer to perform, as you want to make your websites as small in file size as possible.</li>
+  <li><a href="http://www.photoscape.org/ps/main/index.php">Photoscape</a>: A fairly decent Windows graphics editor</li>
+</ol>
+
+<p>Graphic design is really a complete separate subject on its own, and I didn't really have time to discuss it in this course.</p>
+
+<h3>Server space and a domain</h3>
+
+<p>When you want to put a website you've coded on your computer up on the Web for others to access, you need two things:</p>
+
+<ul>
+  <li>Server space, often called hosting space: This means you basically rent some space on someone else's web server, and use that space to store your website on. This can be purchased from a <em>web hosting company</em>.</li>
+  <li>A domain name: This is the name your website is accessed via. Domain names are also rented, from companies called <em>domain name registrars</em>.</li>
+</ul>
+
+<h3>An <acronym title="File Transfer Protocol">FTP</acronym> program</h3>
+
+<p>An FTP program is an application that you use to transfer your website's files from your local computer to your server space. This is how your website gets up on the Web! A typical FTP program looks as follows:</p>
+
+<img src="images/10b.jpg" alt="A typical FTP program, showing a window with a file structure on the left and right">
+
+<p>Good (free) FTP programs include:</p>
+
+<ul>
+  <li><a href="https://filezilla-project.org/">FileZilla</a>: A free FTP program for Windows, Mac and Linux</li>
+  <li><a href="http://cyberduck.io/">CyberDuck</a>: A decent Mac-only program</li>
+  <li><a href="https://addons.mozilla.org/en-US/firefox/addon/fireftp/">FireFTP</a>: A Firefox browser extension</li>
+</ul>
+
+<h2>Becoming a web designer/developer</h2>
+
+<p>Working with web technologies is quite a good line of work to go into:</p>
+
+<ul>
+  <li>You can generally dress however you want (less chance of needing to wear a smart suit.)</li>
+  <li>It pays pretty well (design and code are voodoo magic to those who don't get it.)</li>
+  <li>You don't need a degree or phd to get the job (you can learn it by yourself.)</li>
+  <li>You will meet lots of interesting people.</li>
+</ul>
+
+<p>Basically, you just need to have passion for creating interesting things, computer literacy, and patience. You need to get stuck in and not be afraid to experiment, to not be afraid of failure. To start with, design and coding may seem really hard, but it gets easier quite quickly as you start to understand how things work. I think some people have more of a natural talent for it than others, but I believe that anyone can learn to code, and design to a certain extent.</p>
+
+<p>Steve jobs said it well:</p>
+
+<blockquote><p>Everything around you that you call life was made up by people that were no smarter than you and you can change it, you can influence it, you can build your own things that
+other people can use.</p></blockquote>
+
+<h2>Further resources</h2>
+
+<p>Some links to further teaching resources that may help to teach, or will at least provide inspiration.</p>
+  
+<ul>
+  <li><a href="http://learn.shayhowe.com/">A Practical Guide to HTML and CSS</a>, by Shay Howe</li>
+  <li><a href="http://www.w3.org/community/webed/wiki/Main_Page">Web standards curriculum</a></li>
+  <li><a href="https://mozlearning.etherpad.mozilla.org/DesigningForWeb">Designing For Web Etherpad</a></li>
+  <li><a href="https://webmaker.org/en-US">Webmaker home</a></li>
+  <li><a href="https://webmaker.org/teach">Webmaker: let's teach the Web!</a></li>
+  <li><a href="https://support.mozilla.org/en-US/kb/pro-tips-webmaker-teaching-kits">Pro tips on Webmaker teaching kits</a></li>
+  <li><a href="https://mozteach.makes.org/thimble/xray-goggles-teaching-kit">Xray Goggles teaching kit</a></li>
+  <li><a href="https://www.codeclub.org.uk/">Code Club</a></li>
+  <li><a href="http://www.codecademy.com/">Codecademy</a></li>
+  <li><a href="https://www.khanacademy.org/">Khan academy</a></li>
+</ul>
+
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson9.html">CSS positioning</a></p>
+  <p><a href="index.html">Main index</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

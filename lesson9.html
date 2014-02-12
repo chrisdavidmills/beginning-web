@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 9</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>Positioning and free time</h1>
+  <h2>It's my Web! Lesson 9</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson8.html">CSS layout</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson10.html">How do you become..?</a></p>
+</nav>
+
+  <main>
+    <p>Hey there! In this section we will again explore a more advanced topic — <em>positioning</em> — and then take some free time out to do some more work on our projects.</p>
+
+    <h2>Positioning</h2>
+
+    <p>Positioning is a CSS feature that you can use to make more interesting CSS layouts. The idea is that you take the default position that an element is laid out in — how it normally appears on the page — and then modify its position so that it ends up appearing somewhere else, with some interesting results.</p>
+
+    <p>Without further ado, let's look at an example!</p>
+
+    <p>to start with:</p>
+    
+    <ol>
+      <li>Create a new <a href="https://thimble.webmaker.org/">Thimble page</a>.</li>
+      <li>Add a <code>style</code> element to the HTML head.</li>
+      <li>Add the following two <code>div</code> elements to the HTML body</li>
+ <pre><code class="language-markup">&lt;div class="first"&gt;&lt;/div&gt;
+&lt;div class="second"&gt;&lt;/div&gt;</code></pre>
+      <li>Add the following CSS to your page:</li>
+<pre><code class="language-css">div {
+  font-size: 200%;
+  line-height: 150px;
+  color: rgba(0,0,0,0.3);
+  width: 250px;
+  height: 150px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.first {
+  background-color: rgba(255,0,0,0.5);
+  position: ;
+}
+
+.second {
+  background-color: rgba(255,0,255,0.5);
+}</code></pre>
+</ol>
+
+<p>At this point we have two containers, the same size, but different colours.</p>
+
+<p class="note">I've made them slightly transparent so we can see both elements even as one moves over the other. The transparent colours are created using these <code>rgba()</code> blocks. To find out how they work, read the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">MDN color value</a> page.</p>
+
+<p>You'll notice that in the rule with the <code>.first</code> selector, we have a blank <code>position</code> property. Lets fill it in with different values in subsequent sections to show what options are available.</p>
+
+  <h3>Static positioning</h3>
+
+  <p>To start off, fill in a value of <code>static</code> in the <code>position</code> property. This is the default position type, so you'll see no difference. Moving on!</p>
+
+  <h3>Relative positioning</h3>
+
+  <p>Now change the value of <code>static</code> from <code>static</code> to <code>relative</code>. We now have the ability to move the element relative to its original laid out position on the page. We specify the amount we want to move the element using the <code>top</code>, <code>bottom</code>, <code>left</code> and <code>right</code> properties. Add these lines below the <code>position</code> property:</p>
+
+<pre><code class="language-css">top: 30px;
+bottom: ;
+left: 30px;
+right: ;</code></pre>
+
+<p>You'll now see that the top <code>div</code> has moved down and to the right. Try experimenting with adding other values for a few minutes. You might think it is weird that the values seem to move the element in the opposite direction to what you might expect, but think of it as you specifying the side from which you are pushing to get the element to move.</p>
+
+<p>Now let's set all the <code>top</code>, <code>left</code>, etc. values to <code>0</code> (or just blank out the values), in preparation for the next part.</p>
+
+  <h3>Absolute positioning</h3>
+
+<p>Absolute positioning is quite different. This removes the element from the document layout completely so that it no longer takes up any space and you can position it anywhere inside the <code>body</code> element you like. It works a bit differently to relative, so lets explore it.</p>
+
+<p>Change the <code>position</code> value from <code>relative</code> to <code>absolute</code>. You'll now see that the first <code>div</code> moves up to the top left corner of the <em>Preview</em> area, and sits over the top of the second <code>div</code>. The second <code>div</code> is now positioned as if the first <code>div</code> didn't exist at all!</p>
+
+<p>Now try setting the <code>top</code> and <code>right</code> property values both to <code>50px</code>. The element will now move so that it is 50 pixels away from the top of the <code>body</code>, and 50 pixels away from the right of the <code>body</code>. This is markedly different behaviour to relative position.</p>
+
+<p>Last in this section, I'd like you to go again to the <a href="http://www.lipsum.com/">Lorem Ipsum generator</a>. Generate about 5 or 6 paragraphs of it, paste them into your HTML, and put all the paragraphs inside <code>p</code> elements. Basically, put in enough to make the page scroll. Note how the absolutely positioned element stays in the same place relative to the body element, and scrolls as the page scrolls.</p>
+
+  <h3>Fixed positioning</h3>
+
+<p>Next, change the value of the <code>position</code> property from <code>absolute</code> to <code>fixed</code>. Let's explore the difference — try scrolling the page now!</p>
+
+<p>Why does this occur? This is because absolute positioning generally positions an element relative to the <code>body</code> element's perimeter (I say generally, as this <a href="http://css-tricks.com/absolute-positioning-inside-relative-positioning/">can also be changed</a>). Fixed positioning instead positions elements relative to the browser window, which is why the element stays in the same position when the window is scrolled. You can have a lot of fun with this, for example if you want to have one important element always staying in view, like a map, or a menu.</p>
+
+  </main>	
+
+<nav>
+  <p>Previous:<br><a href="lesson8.html">CSS layout</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson10.html">How do you become..?</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>

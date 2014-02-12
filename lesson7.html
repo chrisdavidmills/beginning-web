@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>It's my Web: Lesson 7</title>
+  <link href='http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Alfa+Slab+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="style.css">  
+  <link rel="stylesheet" href="prism/prism.css">
+</head>
+<body>
+
+<hgroup>
+  <h1>CSS decorations</h1>
+  <h2>It's my Web! Lesson 7</h2>
+</hgroup>
+
+<nav>
+  <p>Previous:<br><a href="lesson6.html">How CSS works</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson8.html">CSS layout</a></p>
+</nav>
+
+  <main>
+
+    <p>There are a lot of ways to make your web pages look cool using CSS, and in this part of the course I'll explain a few of the simpler ones. You are probably dying to find out how to set different cool looking fonts on your pages, drop shadows, and nice looking backgrounds for your content boxes. Lets dive in and find out more.</p>
+
+    <h2>Web fonts</h2>
+
+    <p>If you look at my example templates (for example, my <a href="https://chrisdavidmills.makes.org/thimble/all-about-chris">All about Chris</a> page), you'll notice some interesting fonts, whereas the <a href="https://thimble.webmaker.org/">default Thimble page</a> has an altogether more ... um ... boring font. What gives? How can we spice our fonts?</p>
+
+    <p>To start with lets look at the CSS that controls fonts. In a new Thimble page, create a <code>style</code> element inside the HTML head like we did before, and add the following CSS:
+
+<pre><code class="language-css">p {
+  font-family: arial;
+}</code></pre> 
+
+<p>When this is added, you will notice that the font changes. This is because we have specified a different font family for the font. A font family is collection of different font variants, for example a font, plus its bold and italic versions. Don't worry too much about this for now.</p>
+
+<p>Now try changing the <code>p</code> selector to an <code>html</code> selector. You'll not notice much difference. This is because the <code>html</code> element's font setting is inherited by all its child elements. Try adding some example elements (headings and paragraphs will be fine) to the HTML body and you'll see what I mean: all of these elements will take on the same font as the <code>html</code> element.</p>
+
+<p>Now add another CSS ruleset to style one of your heading levels. For example:</p>
+
+<pre><code class="language-css">h1 {
+  font-family: 'courier new';
+}</code></pre> 
+
+<p class="note">Note that if the font family name you have chosen has multiple words in it, you need to surround it in quotes.</p>
+
+<p>This is generally how fonts are used on web pages: you set a base font that applies to the entire page, and then override it where you want.</p>
+
+<h3>What fonts can we use?</h3>
+
+<p>The next thing we need to consider is that you can't just use <em>any font</em> you like anywhere you want, just by using <code>font-family</code> in your CSS. A web page making use of a font on a user's computer requires it to be available on that computer (these are the same fonts that other programs will use, like Microsoft Word for example). Just because a font is available on your computer, doesn't mean that is available on the computers of other people looking at your website.</p> 
+
+<p>There is another piece of this puzzle we are missing: <code>@font-face</code>. This is a bit of code that allows you to include your font files along with your web page, so it doesn't have to be available on the user's computer: it can be downloaded along with the other web page files. Now, implementing this yourself is a bit beyond the scope of this course, so we are going to use a simple online service to do most of the work for us: <a href="http://www.google.com/fonts">Google Fonts</a>. Let's do it!</p>
+
+<ol>
+  <li>Open your project in one tab, and Google fonts in another tab</li> 
+  <li><p>In the Google Fonts page you have a list of fonts, and you can adjust the options</p>
+      <img src="images/7a.png" alt="The Google fonts website">
+  </li>
+  <li>Look through the list of fonts, and find two or three that you like the look of, and might to use on your project. For each one, click the <em>Add to collection</em> button.</li>
+  <li>When you are done choosing, click the <em>Use</em> button near the bottom of the page.</li>
+  <li>Now you are given the code you need to get your font choices onto your page. First of all, you need to made the fonts available on your page, using the line of code seen in step 3 of the <em>Use</em> panel into your page. Copy this line now.</li>
+  <pre><code class="language-markup">&lt;link href='http://fonts.googleapis.com/css?family=Alegreya+Sans'
+      rel='stylesheet' type='text/css'&gt;</code></pre>
+  <li>Paste the line just above your opening <code>&lt;style&gt;</code> tag. It is important to put this before your CSS, as the fonts need to be available on the page before you use them (HTML code is run in order from start to finish.)</li>
+  <li>Now take the lines shown in step 4 on the Google Fonts page and put them on the elements you want your fonts applied to. If you want to use a font as your base or sitewide font, you would do this:</li>
+      <pre><code class="language-css">html {
+  font-family: 'Alegreya Sans', sans-serif;
+}</code></pre> 
+  <li>For a more specific font, you would do something like this: 
+  </li>
+  <pre><code class="language-css">h1 {
+  font-family: 'Alegreya Sans', sans-serif;
+}</code></pre>
+</ol>
+
+<p>That's about it for fonts in this course! You can find a lot more out at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font">the MDN font page</a>, and <a href="http://www.sitepoint.com/how-to-use-cross-browser-web-fonts-part-1/">Cross browser web fonts part 1</a>.</p>
+
+    <h2>Backgrounds</h2>
+
+    <p>With fonts covered briefly, let's now turn our attention to setting backgrounds in CSS. We've already looked at the simplest part of this: <code>background-color</code>, which allows us to set a single colour to cover the whole of an element's background. Lets now look at a few more of the available options.</p>
+
+    <h3>Background images</h3>
+
+    <p>We've already inserted images into our pages with the <code>&lt;img&gt;</code> element; we can also insert images in our pages using the CSS <code>background-image</code> property, which looks like this:</p>
+
+    <pre><code class="language-css">p {
+  background-image: url(http://www.location/of/my/image.png);
+}</code></pre>
+
+    <p>You can find an image in the same way as we did in week 4. Try using the above property in your project. Find an image, and insert it as a background image into an element, or elements, on your page.</p>
+
+    <p>You'll notice that there are some differences between the way HTML and CSS images work. HTML images take up space in their own right, and you only get one image inserted per <code>img</code> element. CSS background images on the other hand do not take up space in their own right. They exist in the background of other elements. And by default, they will repeat endlessly until the whole of the image background is filled up.</p>
+
+    <p>A very common technique is to use a seamless repeating image tile to create a nice looking background. If you search for something like "repeating background tile", you should find many suitable images to do this with. Lets try this now before we move on.</p>
+
+    <h3>Background repeat</h3>
+
+    <p>In some situations, you don't want to repeat your image; you might just want it to repeat horizontally or vertically, or not at all. The CSS <code>background-repeat</code> property allows you to control this, and takes one of four values:</p>
+
+    <ul>
+      <li><code>repeat</code>: The default if no value is specified. The image repeats in both directions.</li>
+      <li><code>no-repeat</code>: The image doesn't repeat at all: it is only shown once.</li>
+      <li><code>repeat-x</code>: The image is repeated horizontally, but not vertically.</li>
+      <li><code>repeat-y</code>: The image is repeated vertically, but not horizontally.</li>
+    </ul>
+
+    <h3>Background position</h3>
+
+    <p>Another issue when you are just showing an image once is that by default it will appear in the top left corner of the element you put it on. But never fear: you can change where it sits using the <code>background-position</code> property. This can take a couple of different types of values, and generally you need to put two items in the value: a value for the horizontal value and the vertical value.</p>
+
+    <ol>
+      <li>For a start, you can use keyword values, which place the image in very specific places; the horizontal item can have a value of <code>left</code>, <code>center</code> or <code>right</code>, and the vertical item can have a value of <code>top</code>, <code>center</code> or <code>bottom</code>. So for example, to put the image at the bottom right of the element, you would use <code>background-position: right bottom;</code>.</li>
+      <li>Second, you can use <a href="http://docs.webplatform.org/wiki/css/data_types/length">CSS length units</a> to give much more specific control over the image position. So for example, you could use pixel values to put the image a specific number of pixels from the top left corner of the element (e.g. <code>background-position: 100px 200px;</code>), or percentages to put the image a percentage of the element's width and height across and down from the top left corner ((e.g. <code>background-position: 50% 30%;</code>))</li>
+      <li>You can also mix the keywords and CSS length unit values, for example <code>background-position: 100px bottom;</code></li>
+    </ol>
+
+    <h3>ADVANCED: shorthand</h3>
+
+    <p>Just like you've seen with elements like <code>border</code> and <code>padding</code>, you can also use a shorthand value to replace all the different <code>background-*</code> properties: <code>background</code>. Instead of writing:</p>
+
+ <pre><code class="language-css">background-color: red;
+background-image: url(http://www.clker.com/cliparts/v/R/d/R/l/c/
+                      decorative-corner-design-md.png);
+background-repeat: no-repeat;
+background-position: right top;</code></pre>
+
+ <p>You could just write:</p>
+
+<pre><code class="language-css">background: red url(http://www.clker.com/cliparts/v/R/d/R/l/c/
+                    decorative-corner-design-md.png)
+                    no-repeat right top;</code></pre>
+
+    <h2>ADVANCED: Drop shadows</h2>
+
+    <p>CSS provides a mechanism to put drop shadows on your text and boxes. This is a bit more tricky to work out, but can create some fun effects.</p>
+
+    <li><code>text-shadow</code>: This allows you to put a funky drop shadow on the text of your element, for example <code>text-shadow: 2px 2px 5px black;</code>. The four items in the value are:
+      <ol>
+        <li>The horizontal offset of the shadow from the original text (how far it moves over to the right.)</li>
+        <li>The vertical offset of the shadow from the original text (how far it moves toward the bottom.)</li>
+        <li>The blur radius of the shadow. This means how blurry it is; a bigger number will give more blur, while 1px will give a solid shadow (no blur.)</li>
+        <li>The base colour of the shadow.</li>
+      </ol>
+    </li>
+    <li><code>box-shadow</code>: This allows you to put a funky drop shadow on the your whole element, for example <code>box-shadow: 2px 2px 5px black;</code>. The four items in the value are:
+      <ol>
+        <li>The horizontal offset of the shadow from the original box (how far it moves over to the right.)</li>
+        <li>The vertical offset of the shadow from the original box (how far it moves toward the bottom.)</li>
+        <li>The blur radius of the shadow. This means how blurry it is; a bigger number will give more blur, while 1px will give a solid shadow (no blur.)</li>
+        <li>The base colour of the shadow.</li>
+      </ol>
+    </li>
+  </main>	
+
+
+<nav>
+  <p>Previous:<br><a href="lesson6.html">How CSS works</a></p>
+  <p><a href="index.html">Main index</a></p>
+  <p>Next:<br><a href="lesson8.html">CSS layout</a></p>
+</nav>
+
+<hr>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>. Share it, make it better, use it for good.</p>
+
+</body>
+  <script src="prism/prism.js"></script>
+</html>
